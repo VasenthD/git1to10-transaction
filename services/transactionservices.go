@@ -25,16 +25,16 @@ func (s Transactionservice) MakeTransaction(transaction *models.Transaction) (st
 	Ccollection := config.Getcollection(info.Dbname, "cusotmer")
 
 //decreasing the ammount from the form_id user:
-
-	u1,err:=Ccollection.UpdateOne(s.Tctx, bson.M{"customer_id": transaction.From_id},
-		bson.M{"$inc": bson.M{"balance": -(10)}})
+	fmt.Println(transaction.Ammount,"🎉 --- 🎉")
+	_,err:=Ccollection.UpdateOne(s.Tctx, bson.M{"customer_id": transaction.From_id},
+		bson.M{"$inc": bson.M{"balance": -(transaction.Ammount)}})
 	if err != nil {
 		fmt.Println("from user update problem : 🗿..🪦..🗿")
 	}
-	fmt.Println(u1.MatchedCount,"<----------🎉 ERR 🎉")
+	
 //Increasing the ammount form the to_id user:
 
-	_,err1 :=Ccollection.UpdateOne(s.Tctx, bson.M{"customer_id": transaction.From_id},
+	_,err1 :=Ccollection.UpdateOne(s.Tctx, bson.M{"customer_id": transaction.To_id},
 		bson.M{"$inc": bson.M{"balance": (transaction.Ammount)}})
 		if err1 != nil {
 			fmt.Println("from user update problem : 🗿..🪦..🗿")
