@@ -29,5 +29,5 @@ func (c *CustomerController) CreateCustomer(ctx *gin.Context) {
 		fmt.Println("Error : Cant call the services - check it !!!")
 		ctx.JSON(http.StatusInternalServerError, "Calling the services is the problem 💀 ☠️!!!")
 	}
-	ctx.JSON(http.StatusCreated, gin.H{"Customer Created": newCustomer.ID, "Grettings": "Vanakam da mapla 🙏🏼😀🙏🏼", "🕶": "😈 welcome to greate Kirigalan magic show 👽"})
+	ctx.JSON(http.StatusCreated, gin.H{"Customer Created": newCustomer.ID, "Grettings": "Vanakam🙏🏼😀🙏🏼", "🕶": "😈 welcome to ...👽"})
 }
