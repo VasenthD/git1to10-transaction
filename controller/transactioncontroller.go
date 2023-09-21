@@ -28,5 +28,5 @@ func (t *TrasnactionController) MakeTransaction(ctx *gin.Context) {
 		fmt.Println("Controller to Service calling problem : 🚨🚨🚨", err1)
 	}
 	fmt.Println(res)
-	ctx.JSON(http.StatusCreated, gin.H{"Transaction done 💳:  ": transaction.Ammount, "Grettings": "Transaction tax enaku(bank) 🙏🏼🤑🙏🏼"})
+	ctx.JSON(http.StatusCreated, gin.H{"Transaction done 💳:  ": transaction.Ammount, "Grettings": "Transaction done 🙏🏼"})
 }
